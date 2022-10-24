@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/gofiber/fiber/v2"
 )
 
@@ -23,7 +25,7 @@ func main() {
 	app.Post("/api/v1/payment", func(c *fiber.Ctx) error {
 		var dto PaymentMessage
 		c.BodyParser(&dto)
-		c.SendString("payment-api payment")
+		fmt.Println("payment-api payment")
 		return c.JSON(dto)
 
 	})
