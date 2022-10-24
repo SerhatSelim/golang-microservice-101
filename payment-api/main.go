@@ -23,9 +23,9 @@ func main() {
 
 	//curl -X POST -H "Content-Type: application/json"  -d '{"Amount": 100,"From": "cobadeff","To": "nabatww"}' localhost:54321/api/v1/payment
 	app.Post("/api/v1/payment", func(c *fiber.Ctx) error {
+		fmt.Println("payment-api payment")
 		var dto PaymentMessage
 		c.BodyParser(&dto)
-		fmt.Println("payment-api payment")
 		return c.JSON(dto)
 
 	})
