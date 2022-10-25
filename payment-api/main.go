@@ -1,15 +1,17 @@
 package main
 
 import (
+	"encoding/json"
 	"fmt"
+	"log"
 
 	"github.com/gofiber/fiber/v2"
 )
 
 type PaymentMessage struct {
-	Amount int    `form:"Amount" query:"Amount"`
-	From   string `form:"from" query:"from"`
-	To     string `form:"to" query:"to"`
+	Amount int    `form:"Amount" json:"Amount"`
+	From   string `form:"from" json:"from"`
+	To     string `form:"to" json:"to"`
 }
 
 func main() {
@@ -26,6 +28,13 @@ func main() {
 		fmt.Println("payment-api payment")
 		var dto PaymentMessage
 		c.BodyParser(&dto)
+
+		paymentMessage := &dto
+		jsonData, err := json.Marshal(paymentMessage)
+		if err != nil {
+			log.Fatal(err)
+		}
+		fmt.Println(string(jsonData))
 		return c.JSON(dto)
 
 	})
