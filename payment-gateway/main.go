@@ -91,6 +91,33 @@ func main() {
 		return c.SendString(string(responseBody))
 	})
 
+	// //curl localhost:30001/api/v1/gateway/fastpay-api/healty
+	app.Get("/api/v1/gateway/fastpay-api/healty", func(c *fiber.Ctx) error {
+		fmt.Println("/api/v1/gateway/fastpay-api/healty")
+		client := &http.Client{}
+		req, err := http.NewRequest(http.MethodGet, "http://localhost:63321/api/v1/healty", nil)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		resp, err := client.Do(req)
+		if err != nil {
+			fmt.Println("Errored when sending request to the server")
+			return err
+		}
+
+		defer resp.Body.Close()
+		responseBody, err := ioutil.ReadAll(resp.Body)
+		if err != nil {
+			log.Fatal(err)
+		}
+
+		fmt.Println(resp.Status)
+		fmt.Println(string(responseBody))
+
+		return c.SendString(string(responseBody))
+	})
+
 	app.Listen(":30001")
 
 }
