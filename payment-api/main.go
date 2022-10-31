@@ -9,7 +9,7 @@ import (
 )
 
 type PaymentMessage struct {
-	Amount int    `form:"Amount" json:"Amount"`
+	Amount int    `form:"amount" json:"Aaount"`
 	From   string `form:"from" json:"from"`
 	To     string `form:"to" json:"to"`
 }
@@ -23,7 +23,7 @@ func main() {
 		return c.SendString("payment-api healty")
 	})
 
-	//curl -X POST -H "Content-Type: application/json"  -d '{"Amount": 100,"From": "cobadeff","To": "nabatww"}' localhost:54321/api/v1/payment
+	//curl -X POST -H "Content-Type: application/json"  -d '{"amount": 100,"from": "cobadeff","to": "nabatww"}' localhost:54321/api/v1/payment
 	app.Post("/api/v1/payment", func(c *fiber.Ctx) error {
 		fmt.Println("payment-api payment")
 		var dto PaymentMessage

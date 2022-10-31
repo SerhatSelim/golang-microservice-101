@@ -9,9 +9,10 @@ import (
 )
 
 type FastPayMessage struct {
-	Amount int    `form:"Amount" json:"Amount"`
+	Amount int    `form:"amount" json:"amount"`
 	From   string `form:"from" json:"from"`
 	To     string `form:"to" json:"to"`
+	Flag   bool   `form:"flag" json:"flag"`
 }
 
 func main() {
@@ -23,7 +24,7 @@ func main() {
 		return c.SendString("fastpay-api healty")
 	})
 
-	//curl -X POST -H "Content-Type: application/json"  -d '{"Amount": 100,"From": "cobadeff","To": "nabatww"}' localhost:63321/api/v1/fastpay
+	//curl -X POST -H "Content-Type: application/json"  -d '{"amount": 100,"from": "cobadeff","to": "nabatww","flag": true}' localhost:63321/api/v1/fastpay
 	app.Post("/api/v1/fastpay", func(c *fiber.Ctx) error {
 		fmt.Println("fastpay-api payment")
 		var dto FastPayMessage
