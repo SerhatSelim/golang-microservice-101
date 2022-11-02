@@ -22,12 +22,12 @@ func main() {
 
 	//curl localhost:52321/api/v1/healty
 	app.Get("/api/v1/healty", func(c *fiber.Ctx) error {
-		return c.SendString("fastpay-api healty")
+		return c.SendString("merchant-api healty")
 	})
 
 	//curl -X POST -H "Content-Type: application/json"  -d '{"amount": 100,"from": "cobadeff","to": "nabatww","flag": true, "desc":"merchant"}' localhost:52321/api/v1/merchant
 	app.Post("/api/v1/merchant", func(c *fiber.Ctx) error {
-		fmt.Println("merchant-api payment")
+		fmt.Println("merchant-api")
 		var dto MerchantMessage
 		c.BodyParser(&dto)
 
