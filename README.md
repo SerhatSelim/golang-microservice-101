@@ -4,7 +4,7 @@ golang-microservice-101
 ![alt text](https://raw.githubusercontent.com/SerhatSelim/golang-microservice-101/main/go_microservice_101.drawio.png)
 
 
-## test proxies
+## test proxies:
 curl localhost:3000/payment
 
 curl localhost:3000/moneygram
