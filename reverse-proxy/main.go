@@ -12,8 +12,11 @@ func main() {
 		return c.SendString("Hello, World!")
 	})
 
+	//curl localhost:3000/payment
+	//curl localhost:3000/moneygram
 	app.Get("/:key/*", MoneygramProxyHandler)
 
+	//TODO post endpoints
 	app.Listen(":3000")
 
 }
