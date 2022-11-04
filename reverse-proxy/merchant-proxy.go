@@ -44,7 +44,7 @@ func (m Merchant) Proxy(c *fiber.Ctx) error {
 	}
 	fmt.Println(string(jsonData))
 
-	req, err := http.NewRequest(http.MethodPost, "http://localhost:52321/api/v1/merchant", bytes.NewBuffer(jsonData))
+	req, err := http.NewRequest(http.MethodPost, "localhost:30002/api/v1/moneygram-gateway/merchant", bytes.NewBuffer(jsonData))
 	if err != nil {
 		log.Fatal(err)
 	}
