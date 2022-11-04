@@ -12,6 +12,7 @@ type Proxy interface {
 var Proxies = []Proxy{
 	MoneygramProxy("moneygram"),
 	PaymentProxy("payment"),
+	MerchantProxy("merchant"),
 }
 
 func ProxyHandler(c *fiber.Ctx) error {
