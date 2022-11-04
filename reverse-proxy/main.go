@@ -16,6 +16,9 @@ func main() {
 	//curl localhost:3000/moneygram
 	app.Get("/:key/*", ProxyHandler)
 
+	//curl -X POST -H "Content-Type: application/json"  -d '{"amount": 100,"from": "cobadeff","to": "nabatww","flag": true, "desc":"merchant"}' localhost:3000/merchant
+	app.Post("/:key/*", ProxyHandler)
+
 	//TODO post endpoints
 	app.Listen(":3000")
 
