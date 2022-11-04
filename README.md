@@ -9,6 +9,8 @@ curl localhost:3000/payment
 
 curl localhost:3000/moneygram
 
+//curl -X POST -H "Content-Type: application/json"  -d '{"amount": 100,"from": "cobadeff","to": "nabatww","flag": true, "desc":"merchant"}' localhost:3000/merchant
+
 ## test gateways:
 curl localhost:30001/api/v1/gateway/healty
 
