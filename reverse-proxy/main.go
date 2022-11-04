@@ -14,7 +14,7 @@ func main() {
 
 	//curl localhost:3000/payment
 	//curl localhost:3000/moneygram
-	app.Get("/:key/*", MoneygramProxyHandler)
+	app.Get("/:key/*", ProxyHandler)
 
 	//TODO post endpoints
 	app.Listen(":3000")

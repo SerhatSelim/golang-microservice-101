@@ -14,7 +14,7 @@ var Proxies = []Proxy{
 	PaymentProxy("payment"),
 }
 
-func MoneygramProxyHandler(c *fiber.Ctx) error {
+func ProxyHandler(c *fiber.Ctx) error {
 	for _, v := range Proxies {
 		if v.Accept(c.Params("key")) {
 			return v.Proxy(c)
