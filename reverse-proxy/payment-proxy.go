@@ -33,11 +33,8 @@ func (m Payment) Proxy(c *fiber.Ctx) error {
 		log.Fatal(err)
 	}
 
-	// appending to existing query args
 	q := req.URL.Query()
-	q.Add("foo", "bar")
 
-	// assign encoded query string to http request
 	req.URL.RawQuery = q.Encode()
 
 	resp, err := client.Do(req)
